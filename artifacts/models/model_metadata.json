@@ -1,0 +1,121 @@
+{
+  "model_name": "XGBoost",
+  "selection_metric": "test_rmse",
+  "selection_rule": "lowest value wins",
+  "metrics": {
+    "train_mae": 2909.89453125,
+    "train_mse": 19100644.0,
+    "train_rmse": 4370.428354292059,
+    "train_r2": 0.9479731917381287,
+    "train_mape": 9.986985474824905,
+    "test_mae": 5151.4755859375,
+    "test_mse": 55671484.0,
+    "test_rmse": 7461.332588753835,
+    "test_r2": 0.8500553965568542,
+    "test_mape": 18.430599570274353,
+    "fit_seconds": 449.81602478027344,
+    "cv_rmse_logscale": 0.2597693944129131,
+    "cv_mae_logscale": 0.18908255728434195,
+    "cv_r2_logscale": 0.8596194394616499
+  },
+  "trained_at_utc": "2026-10-06T07:18:58+00:00",
+  "mlflow": {
+    "tracking_uri": "file:./mlruns",
+    "experiment_name": "used-car-price-prediction",
+    "run_id": "3bb6ac27d5e94be59e34bb0156fc996b",
+    "summary_run_id": "79f3410606664266a6ba6683f5843ec6",
+    "model_artifact_path": "model"
+  },
+  "random_state": 42,
+  "test_size": 0.2,
+  "target": {
+    "name": "price",
+    "unit": "USD",
+    "model_trains_on": "log1p(price)",
+    "predict_returns": "price in USD"
+  },
+  "model_input": {
+    "feature_columns": [
+      "brand",
+      "fuel_type",
+      "transmission",
+      "clean_title",
+      "hp",
+      "engine displacement",
+      "is_v_engine",
+      "Accident_Impact",
+      "Vehicle_Age",
+      "Mileage_per_Year",
+      "Age_Mid",
+      "Age_Old",
+      "Age_Very Old",
+      "Milage_Medium",
+      "Milage_High",
+      "Milage_Very High"
+    ],
+    "dtypes": {
+      "brand": "object",
+      "fuel_type": "int64",
+      "transmission": "int64",
+      "clean_title": "int64",
+      "hp": "float64",
+      "engine displacement": "float64",
+      "is_v_engine": "int64",
+      "Accident_Impact": "int64",
+      "Vehicle_Age": "int64",
+      "Mileage_per_Year": "float64",
+      "Age_Mid": "int64",
+      "Age_Old": "int64",
+      "Age_Very Old": "int64",
+      "Milage_Medium": "int64",
+      "Milage_High": "int64",
+      "Milage_Very High": "int64"
+    },
+    "note": "Input = the cleaned feature frame produced in Section 5 (raw 'brand' string included; brand encoding + scaling + log-target happen inside the model)."
+  },
+  "feature_preparation": {
+    "label_encoder_classes": {
+      "fuel_type": [
+        "DIESEL",
+        "E85 FLEX FUEL",
+        "GASOLINE",
+        "HYBRID",
+        "OTHER"
+      ],
+      "transmission": [
+        "A/T",
+        "CVT",
+        "M/T",
+        "OTHER"
+      ],
+      "is_v_engine": [
+        "False",
+        "True"
+      ]
+    },
+    "vehicle_age_bin_edges": [
+      1.0,
+      5.0,
+      8.0,
+      13.0,
+      33.0
+    ],
+    "mileage_bin_edges": [
+      100.0,
+      28000.0,
+      58000.0,
+      96000.0,
+      198000.0
+    ],
+    "vehicle_age_reference_year": 2025
+  },
+  "library_versions": {
+    "python": "3.12.10",
+    "scikit-learn": "1.6.1",
+    "xgboost": "3.4.1",
+    "mlflow": "3.16.1",
+    "pandas": "2.3.3",
+    "numpy": "2.4.6",
+    "joblib": "1.5.3"
+  }
+}
